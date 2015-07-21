@@ -62,8 +62,8 @@
 #include <errno.h>
 
 // 追加の ヘッダー ファイル
-#include "../../lib/os.h"
-#include "../../lib/clipboard.h"
+#include "os.h"
+#include "clipboard.h"
 
 // 追加の LIB ファイル
 #pragma comment(lib, "comctl32.lib")
