@@ -307,7 +307,7 @@ BEGIN
 	BEGIN
 		BLOCK "041104b0"
 		BEGIN
-			VALUE "Comments", "手軽にMD5の計算ができます。"
+			VALUE "Comments", "手軽に MD5 の計算ができるアプリケーションです。"
 			VALUE "CompanyName", APPCOMPANY
 			VALUE "FileDescription", APPTITLE
 			VALUE "FileVersion", APPVERSION
