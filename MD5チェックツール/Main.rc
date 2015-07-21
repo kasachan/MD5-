@@ -1,0 +1,437 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// 基本アプリケーションストリング
+//
+// リソースエディタで編集すると消えてしまうので注意してください。
+//
+#ifdef VC2005
+#define APPTITLE "MD5チェックツール (VC++2005 Build)"
+#endif
+#ifdef VC2008
+#define APPTITLE "MD5チェックツール (VC++2008 Build)"
+#endif
+#ifdef VC2012
+#define APPTITLE "MD5チェックツール (VC++2012 Build)"
+#endif
+#ifdef VC2013
+#define APPTITLE "MD5チェックツール (VC++2013 Build)"
+#endif
+#if !defined(APPTITLE)
+#define APPTITLE "MD5チェックツール"
+#endif
+#define APPCOMPANY		"かさ"
+#define APPCOPYRIGHT	"Copyright (C) かさ 2006 - 2015"
+#define APPVERSION		"2.0.29"
+#ifdef _DEBUG
+#define TITLE			"MD5チェックツール (Debug)"
+#define FILELISTTITLE	"ファイルリスト - MD5チェックツール (Debug)"
+#else
+#ifdef _WIN64
+#define TITLE			"MD5チェックツール (x64)"
+#define FILELISTTITLE	"ファイルリスト - MD5チェックツール (x64)"
+#else
+#define TITLE			"MD5チェックツール"
+#define FILELISTTITLE	"ファイルリスト - MD5チェックツール"
+#endif
+#endif
+#define APPURL			"http://www7a.biglobe.ne.jp/~kasachan/MD5Tool.html"
+
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MD5				ICON					"Main.ico"
+IDI_FILE1			ICON					"File1.ico"
+IDI_ICON1			ICON					"icon1.ico"
+IDI_ICON2			ICON					"icon2.ico"
+IDI_ICON3			ICON					"icon3.ico"
+IDI_ICON4			ICON					"icon4.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+IDR_MAINSUBMENU MENU 
+BEGIN
+	POPUP "MainMenu1"
+	BEGIN
+		MENUITEM "再計算\tF5",								ID_MAINSUBMENU1_1
+		MENUITEM "クリア",									ID_MAINSUBMENU1_13
+		MENUITEM SEPARATOR
+		MENUITEM "ファイルを開く\tCtrl+O",					ID_MAINSUBMENU1_2
+		MENUITEM "MD5ファイルに保存\tCtrl+S",				ID_MAINSUBMENU1_3
+		MENUITEM SEPARATOR
+		MENUITEM "MD5のコピー\tCtrl+C",						ID_MAINSUBMENU1_4
+		MENUITEM "MD5の貼り付け\tCtrl+V",					ID_MAINSUBMENU1_5
+		MENUITEM SEPARATOR
+		POPUP "拡張コピー"
+		BEGIN
+			MENUITEM "ファイル名 のコピー",							ID_MAINSUBMENU1_1_1
+			MENUITEM "ファイルのパス のコピー",						ID_MAINSUBMENU1_1_2
+			MENUITEM "ファイルのサイズ のコピー",					ID_MAINSUBMENU1_1_3
+			MENUITEM SEPARATOR
+			MENUITEM "MD5、ファイル名、サイズ の出力コピー",		ID_MAINSUBMENU1_1_4
+		END
+		MENUITEM SEPARATOR
+		MENUITEM "ReadMe.txt の表示",						ID_MAINSUBMENU1_6
+		MENUITEM "最新版の確認",							ID_MAINSUBMENU1_7
+		MENUITEM SEPARATOR
+		MENUITEM "ベンチマーク",							ID_MAINSUBMENU1_12
+		MENUITEM SEPARATOR
+		MENUITEM "ファイルリストの表示",					ID_MAINSUBMENU1_8
+		MENUITEM "オプションの表示",						ID_MAINSUBMENU1_9
+		MENUITEM "バージョン情報の表示",					ID_MAINSUBMENU1_10
+		MENUITEM SEPARATOR
+		MENUITEM "MD5チェックツールの終了",					ID_MAINSUBMENU1_11
+	END
+END
+
+
+IDR_FILELIST_LISTMENU MENU 
+BEGIN
+	POPUP "ListMenu1"
+	BEGIN
+		MENUITEM "MD5チェックツールに表示",					ID_FILELIST_LISTMENU1_1
+		MENUITEM "ファイルの場所を開く",					ID_FILELIST_LISTMENU1_2
+		MENUITEM SEPARATOR
+		MENUITEM "MD5をクリップボードへコピー",				ID_FILELIST_LISTMENU1_3
+		MENUITEM "ファイルのパスをコピー",					ID_FILELIST_LISTMENU1_4
+		MENUITEM SEPARATOR
+		POPUP "拡張コピー"
+		BEGIN
+			MENUITEM "ファイル名のコピー",					ID_FILELIST_LISTMENU1_1_1
+			MENUITEM "ファイルの場所をコピー",				ID_FILELIST_LISTMENU1_1_2
+			MENUITEM "ファイルのサイズをコピー",			ID_FILELIST_LISTMENU1_1_3
+		END
+		MENUITEM SEPARATOR
+		MENUITEM "リストから削除",							ID_FILELIST_LISTMENU1_5
+		MENUITEM SEPARATOR
+		MENUITEM "プロパティ",								ID_FILELIST_LISTMENU1_6
+	END
+	POPUP "ListMenu2"
+	BEGIN
+		MENUITEM "ファイルの追加",							ID_FILELIST_LISTMENU2_1
+		MENUITEM "フォルダーから追加",						ID_FILELIST_LISTMENU2_2
+		MENUITEM "MD5ファイルから追加",						ID_FILELIST_LISTMENU2_3
+		MENUITEM SEPARATOR
+		MENUITEM "エクスプローラーから貼り付け",			ID_FILELIST_LISTMENU2_4
+		MENUITEM SEPARATOR
+		MENUITEM "リストのクリア",							ID_FILELIST_LISTMENU2_5
+	END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+IDC_MD5 ACCELERATORS
+BEGIN
+	"O",			IDM_OPEN,				VIRTKEY, CONTROL, NOINVERT
+	"S",			IDM_SAVE,				VIRTKEY, CONTROL, NOINVERT
+	"C",			IDM_COPY,				VIRTKEY, CONTROL, NOINVERT
+	"V",			IDM_PASTE,				VIRTKEY, CONTROL, NOINVERT
+	VK_F5,			IDM_VK_F5,				VIRTKEY, NOINVERT
+	VK_ESCAPE,		IDM_CANCEL,				VIRTKEY, NOINVERT
+	VK_SPACE,		IDM_PAUSE,				VIRTKEY, NOINVERT
+	"A",			IDM_ABOUT,				ASCII, ALT
+	"O",			IDM_OPEN,				ASCII, ALT
+	"S",			IDM_SAVE,				ASCII, ALT
+	"C",			IDM_COPY,				ASCII, ALT
+	"V",			IDM_PASTE,				ASCII, ALT
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOGEX 0, 0, 138, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "バージョン情報"
+FONT 9, "MS UI Gothic"
+BEGIN
+	ICON			IDI_MD5,IDC_MYICON,6,6,20,20
+	LTEXT			APPTITLE,IDC_ABOUT_STATIC1,30,6,102,10,SS_NOPREFIX | SS_WORDELLIPSIS
+	RTEXT			"",IDC_ABOUT_STATIC2,30,18,96,10
+	RTEXT			APPCOPYRIGHT,IDC_ABOUT_STATIC3,24,30,102,10
+	LTEXT			"OSバージョン",IDC_ABOUT_STATIC4,6,42,45,10
+	LTEXT			"",IDC_ABOUT_STATIC5,12,54,126,18,SS_WORDELLIPSIS
+	LTEXT			"",IDC_ABOUT_STATIC6,12,63,126,18,SS_WORDELLIPSIS
+	DEFPUSHBUTTON   "OK",IDOK,48,75,42,16,WS_GROUP
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 258, 157
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MD5チェックツール"
+FONT 9, "MS UI Gothic"
+BEGIN
+	CONTROL			"",IDC_BITMAP1,"Static",SS_BITMAP,6,8,13,14
+	LTEXT			"MD5",IDC_STATIC1,24,11,96,12,SS_WORDELLIPSIS
+	CONTROL			"",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,126,12,126,10
+	LTEXT			"",IDC_STATIC2,24,24,216,12,SS_WORDELLIPSIS
+	EDITTEXT		IDC_EDIT1,6,36,180,15,ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+	PUSHBUTTON		"コピー(&C)",IDC_BUTTON3,192,36,60,15,WS_TABSTOP
+	EDITTEXT		IDC_EDIT2,6,54,180,15,ES_AUTOHSCROLL | WS_TABSTOP
+	PUSHBUTTON		"貼り付け(&V)",IDC_BUTTON4,192,54,60,15,WS_TABSTOP
+	PUSHBUTTON		"オプション(&O)",IDC_BUTTON5,192,114,60,15,WS_TABSTOP
+	PUSHBUTTON		"バージョン情報",IDC_BUTTON6,192,132,60,15,WS_TABSTOP
+	GROUPBOX		"ファイルのパス",IDC_GROUP1,6,78,180,72,WS_TABSTOP
+	EDITTEXT		IDC_EDIT3,12,96,168,13,ES_AUTOHSCROLL | ES_READONLY | WS_TABSTOP
+	LTEXT			"場所:",IDC_STATIC3,12,114,35,12,WS_TABSTOP | SS_WORDELLIPSIS
+	LTEXT			"",IDC_STATIC4,36,114,144,12,SS_NOTIFY | SS_PATHELLIPSIS | WS_TABSTOP
+	LTEXT			"サイズ:",IDC_STATIC5,12,126,35,13,WS_TABSTOP | SS_WORDELLIPSIS
+	LTEXT			"",IDC_STATIC6,36,126,144,12,ES_AUTOHSCROLL | ES_READONLY | SS_WORDELLIPSIS | WS_TABSTOP
+	DEFPUSHBUTTON   "開く(&O)",IDC_BUTTON1,192,78,60,15,WS_TABSTOP
+	PUSHBUTTON		"保存(&S)",IDC_BUTTON2,192,96,60,15,WS_TABSTOP
+END
+
+IDD_OPTION DIALOGEX 0, 0, 215, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "オプション"
+FONT 9, "MS UI Gothic"
+BEGIN
+	CONTROL			"小文字で MD5 表示する。",IDC_OPTION_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,18,204,10
+	CONTROL			"非アクティブ時は半透明ウインドウで表示する。",IDC_OPTION_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,33,204,10
+	CONTROL			"MD5ファイルは通常のファイルとして開く。",IDC_OPTION_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,48,204,10
+	CONTROL			"起動時にファイルリストを表示する。",IDC_OPTION_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,63,204,10
+	CONTROL			"ファイルキャッシュは無効にして計算する。",IDC_OPTION_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,78,204,10
+	CONTROL			"複数のファイル計算時に描画処理を減らす。",IDC_OPTION_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,93,204,10
+	CONTROL			"フォルダー展開時に隠しファイルも追加する。",IDC_OPTION_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,108,204,10
+	GROUPBOX		"MD5ファイルとして開くファイルの設定", IDC_OPTION_GROUP1, 5, 125, 205, 50
+	EDITTEXT		IDC_OPTION_EDIT1, 10, 140, 195, 13, ES_AUTOHSCROLL
+	PUSHBUTTON		"設定の初期化", IDC_OPTION_BUTTON1, 135, 155, 70, 14
+	DEFPUSHBUTTON   "OK",IDOK,100,185,50,14
+	PUSHBUTTON		"キャンセル",IDCANCEL,155,185,50,14
+END
+
+IDD_FILELIST DIALOGEX 0, 0, 377, 193
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION FILELISTTITLE
+FONT 9, "MS UI Gothic"
+BEGIN
+	CONTROL			"",IDC_FILELIST_LIST1,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,0,0,288,144// | LVS_NOSORTHEADER
+	DEFPUSHBUTTON   "計算開始",IDC_FILELIST_BUTTON1,294,12,78,18,WS_DISABLED | WS_TABSTOP
+	PUSHBUTTON		"クリア(&C)",IDC_FILELIST_BUTTON2,294,36,78,18,WS_DISABLED | WS_TABSTOP
+	PUSHBUTTON		"開く(&O)",IDC_FILELIST_BUTTON3,294,60,78,18,WS_TABSTOP
+	GROUPBOX		"開くオプション",IDC_FILELIST_GROUP1,294,84,78,54
+	CONTROL			"ファイルから開く",IDC_FILELIST_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,300,96,71,10
+	CONTROL			"フォルダーから",IDC_FILELIST_RADIO2,"Button",BS_AUTORADIOBUTTON,300,108,71,10
+	CONTROL			"MD5ファイルから",IDC_FILELIST_RADIO3,"Button",BS_AUTORADIOBUTTON,300,120,71,10
+	PUSHBUTTON		"保存(&S)",IDC_FILELIST_BUTTON4,294,144,78,18,WS_DISABLED,WS_TABSTOP
+END
+
+IDD_OFN2 DIALOGEX DISCARDABLE 0, 0, 300, 40
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
+FONT 9, "MS UI Gothic"
+BEGIN
+	LTEXT			"文字コードの設定:", IDC_STATIC, 66, 5, 55, 8, SS_LEFT
+	COMBOBOX		IDC_OFN2_COMBO1, 131, 2, 100, 30, CBS_DROPDOWNLIST | CBS_HASSTRINGS
+END
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+	"resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+	"#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+	"#include ""windows.h""\r\n"
+	"#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+	"\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+	"\r\n"
+	"\0"
+END
+
+#endif	// APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,29,0
+ PRODUCTVERSION 2,0,29,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x0L
+ FILESUBTYPE 0x0L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "041104b0"
+		BEGIN
+			VALUE "Comments", "手軽にMD5の計算ができます。"
+			VALUE "CompanyName", APPCOMPANY
+			VALUE "FileDescription", APPTITLE
+			VALUE "FileVersion", APPVERSION
+			VALUE "InternalName", TITLE
+			VALUE "LegalCopyright", APPCOPYRIGHT
+			VALUE "OriginalFilename", "MD5チェックツール.exe"
+			VALUE "ProductName", TITLE
+			VALUE "ProductVersion", APPVERSION
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x411, 1200
+	END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1				BITMAP					"status0.bmp"
+IDB_BITMAP2				BITMAP					"status1.bmp"
+IDB_BITMAP3				BITMAP					"status2.bmp"
+IDB_BITMAP4				BITMAP					"status3.bmp"
+IDB_BITMAP5				BITMAP					"status4.bmp"
+IDB_BITMAP6				BITMAP					"status5.bmp"
+IDB_BITMAP7				BITMAP					"status6.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+	IDS_APP_TITLE				TITLE
+	IDS_APP_URL					APPURL
+	IDS_VERSION					"バージョン: %1"
+	IDS_FILENAME				"\\FileList.md5"
+	IDS_INIFILE_NAME			"MD5チェックツール.ini"
+	IDS_FILE_EXTENSION			".md5"
+	IDS_CHACKSUM_FILENAME		"md5.txt;md5sum.txt;chacksum.txt"
+	IDS_WINDOW_TITLE1			"%1 - %2"
+	IDS_WINDOW_TITLE2			"%1!d!%% / %2"
+	IDS_WINDOW_TITLE3			"エラー#%1!u! - %2"
+	IDS_FONT1					"MS UI Gothic"
+	IDS_FONT2					"ＭＳ ゴシック"
+	IDS_BUTTON1_TEXT1			"開く(&O)"
+	IDS_BUTTON1_TEXT2			"一時停止(&P)"
+	IDS_BUTTON1_TEXT3			"再開(&P)"
+	IDS_BUTTON2_TEXT1			"保存(&S)"
+	IDS_BUTTON2_TEXT2			"キャンセル(&C)"
+	IDS_FILELIST_BUTTON1_TEXT1	"計算開始"
+	IDS_FILELIST_BUTTON1_TEXT2	"一時停止(&P)"
+	IDS_FILELIST_BUTTON1_TEXT3	"再開(&P)"
+	IDS_FILELIST_BUTTON2_TEXT1	"クリア(&C)"
+	IDS_FILELIST_BUTTON2_TEXT2	"キャンセル"
+	IDS_STATIC_TEXT1			"MD5"
+	IDS_STATIC_TEXT2			"右側の開くボタンから開きます。"
+	IDS_STATIC_TEXT3			"サイズ:"
+	IDS_STATIC_TEXT4			"ファイルリストからファイルが追記できます。"
+	IDS_INPUT_TEXT				"ここに MD5 を入力します。"
+	IDS_TOOLTIP_MSG1			"ファイルを開きます。"
+	IDS_TOOLTIP_MSG2			".MD5ファイルに保存します。"
+	IDS_TOOLTIP_MSG3			"クリップボードにコピーします。"
+	IDS_TOOLTIP_MSG4			"クリップボードから貼り付けます。"
+	IDS_TOOLTIP_MSG5			"オプション画面を開きます。"
+	IDS_TOOLTIP_MSG6			"バージョン情報を開きます。"
+	IDS_TOOLTIP_MSG7			"MD5計算を中断します。\r\n後で計算の再開ができます。"
+	IDS_TOOLTIP_MSG8			"MD5計算を中止します。"
+	IDS_TOOLTIP_MSG9			"MD5計算を再開します。"
+	IDS_STATUS_TITLE1			"MD5 - %1"
+	IDS_STATUS1					"計算中..."
+	IDS_STATUS2					"計算完了"
+	IDS_STATUS3					"一時停止"
+	IDS_STATUS4					"キャンセル"
+	IDS_STATUS5					"エラー#%1!u!"
+	IDS_STATUS6					"一致"
+	IDS_STATUS7					"不一致"
+	IDS_STATUS8					"未オープン"
+	IDS_STATUS9					"追記モード"
+	IDS_MD5FILE_OPEN1			"MD5ファイルが開けません。%n%n%1"
+	IDS_MD5FILE_OPEN2			"MD5ファイルが開けません。%n%n%1%n%nエラーの詳細:%n空のファイルです。(0 バイト)"
+	IDS_MD5FILE_OPEN3			"MD5ファイルが開けません。%n%n%1%n%nエラーの詳細(#%2!u!):%n%3"
+	IDS_MD5FILE_SAVE1			"MD5ファイルの保存に失敗しました。%n%n%1%n%nエラーの詳細(#%2!u!):%n%3"
+	IDS_MD5FILE_COMP1			"不一致のファイルが%1!u!個あります。"
+	IDS_FOLDER_OPEN1			"計算するフォルダーを選んでください。"
+	IDS_FOLDER_OPEN2			"サブディレクトリーが見つかりました。%n展開しますか？%n%n%1"
+	IDS_FOLDER_OPEN3			"空のフォルダーは計算できません。%n%n%1"
+	IDS_FILE_OPEN1				"計算できるファイルがありません。"
+	IDS_FILE_OPEN2				"ファイルまたは、フォルダーが見つかりません。%n%n%1"
+	IDS_OVERFILE1				"これ以上のファイルは追加できません。%n%n%1"
+	IDS_READMEOPEN1				"ReadMe.txt が見つかりません。"
+	IDS_TIME_TEXT1				"残り時間:%1 (%2 中 %3)  転送率: %4/秒"
+	IDS_TIME_TEXT2				"完了時間:%1 (%2)  転送率: %3/秒"
+	IDS_FILESIZE_TEXT1			"%1 (%2 バイト)"
+	IDS_FILESIZE_TEXT2			"不明"
+	IDS_CLEAR1					""
+	IDS_CLEAR2					"MD5の計算中はクリアできません。%n今すぐ計算の中止しますか？%n%n%1"
+	IDS_HASHPRINT1				"MD5: %1%nファイル名: %2%nサイズ: %3%n%n"
+	IDS_FILELIST_MALLOC_FAIL	"ファイルリストのバッファ確保に失敗しました。%1"
+	IDS_FILELIST_SORT1			"MD5の計算中はソートできません。\r\n計算が終わるまでしばらくお待ちください。"
+	IDS_FILELIST_SORT2			"追記モードで開いたファイルはソートできません。"
+	IDS_FILELIST_CLEAR1			"ファイルリストをクリアすると追記モードが解除されます。\r\n続行しますか？"
+	IDS_FILELIST_DELETE1		"追記モードで開いたファイルは削除できません。"
+	IDS_FILELIST_CLOSE			"フォルダーの展開中は終了できません。\r\n計算が終わるまでしばらくお待ちください。"
+	IDS_FILELIST_STATUS_TEXT1	"%1!u!個の項目"
+	IDS_FILELIST_STATUS_TEXT2	"%1!u!個の項目　%2"
+	IDC_MD5						"MD5Tool_Class"
+END
+
+#endif	// 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif	// not APSTUDIO_INVOKED
