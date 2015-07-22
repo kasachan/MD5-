@@ -40,7 +40,6 @@ INT_PTR CALLBACK AboutDlg_WndProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM
 
 		// OSバージョンの更新
 		AboutDlg_SetOSText(AboutWindow1.hStatic[4], FALSE);
-		AboutDlg_SetOSText(AboutWindow1.hStatic[5], TRUE);
 
 		MessageBeep(MB_ICONASTERISK);
 		return (INT_PTR)TRUE;

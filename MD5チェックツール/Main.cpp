@@ -1851,6 +1851,7 @@ DWORD MainWindow_AddFile(UINT nCount)
 			if(MainWindow1.IsSubFolder == IDCANCEL)
 			{
 				MainWindow1.IsSubFolder = FALSE;
+				Clear();
 
 #ifdef _DEBUG
 				OutputDebugString(_T("MainWindow: MainWindow_AddFile(): サブフォルダの展開をキャンセルしました。\r\n"));
@@ -2852,7 +2853,7 @@ DWORD GetLastError_String(TCHAR *inString, DWORD dwMsg)
 	{
 		cp = (TCHAR*)lpMsgBuf;
 
-		for (; *cp != NULL;)
+		for(; *cp != NULL;)
 		{
 #ifdef _UNICODE
 			if(*(DWORD*)cp == 0x000A000D)

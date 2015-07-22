@@ -397,7 +397,7 @@ BEGIN
 	IDS_MD5FILE_SAVE1			"MD5ファイルの保存に失敗しました。%n%n%1%n%nエラーの詳細(#%2!u!):%n%3"
 	IDS_MD5FILE_COMP1			"不一致のファイルが%1!u!個あります。"
 	IDS_FOLDER_OPEN1			"計算するフォルダーを選んでください。"
-	IDS_FOLDER_OPEN2			"サブディレクトリーが見つかりました。%n展開しますか？%n%n%1"
+	IDS_FOLDER_OPEN2			"サブフォルダーが見つかりました。%n展開しますか？%n%n%1"
 	IDS_FOLDER_OPEN3			"空のフォルダーは計算できません。%n%n%1"
 	IDS_FILE_OPEN1				"計算できるファイルがありません。"
 	IDS_FILE_OPEN2				"ファイルまたは、フォルダーが見つかりません。%n%n%1"

@@ -354,7 +354,7 @@ BOOL isWin9X()
 #if _MSC_VER > 1700
 	return FALSE;
 #else
-	return GetVerifyVersionInfo(5, 0, 0);
+	return !GetVerifyVersionInfo(5, 0, 0);
 #endif
 }
 
@@ -1594,9 +1594,6 @@ BOOL GetUserAgentName(TCHAR* lpText, size_t size)
 		*p1++ = _T(' ');
 		os_qtcscpy(p1, szBuf);
 
-		return TRUE;
-
-
 #if _MSC_VER < 1600
 	}
 	else
@@ -1627,6 +1624,7 @@ BOOL GetUserAgentName(TCHAR* lpText, size_t size)
 		os_qtcscpy(lpText, szBuf);
 	}
 #endif
+	return TRUE;
 }
 
 BOOL isUxTheme()
