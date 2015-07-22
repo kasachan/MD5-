@@ -136,7 +136,7 @@ BOOL GetVerifyVersionInfo(const DWORD dwMajor, const DWORD dwMinor, const DWORD 
 
 UINT GetOSVersion(OSVERSIONINFOEX *osVerInfo)
 {
-#if _MSC_VER > 1700
+#if _MSC_VER > 1500
 
 	TCHAR szBuf[33];
 	HKEY hKey;
@@ -319,7 +319,9 @@ BOOL GetGokanMode(OSVERSIONINFOEX *osVerInfo)
 
 						if(GetOSVersion(&osVerifyVerInfo))
 						{
-							if(osFindVerInfo.dwMajorVersion == osVerifyVerInfo.dwMajorVersion && osFindVerInfo.dwMinorVersion == osVerifyVerInfo.dwMinorVersion && osFindVerInfo.wServicePackMajor == osVerifyVerInfo.wServicePackMajor)
+							if(osFindVerInfo.dwMajorVersion == osVerifyVerInfo.dwMajorVersion &&
+								osFindVerInfo.dwMinorVersion == osVerifyVerInfo.dwMinorVersion &&
+								osFindVerInfo.wServicePackMajor == osVerifyVerInfo.wServicePackMajor)
 								nRet = FALSE;
 
 							if(&osVerInfo != NULL)
@@ -327,9 +329,6 @@ BOOL GetGokanMode(OSVERSIONINFOEX *osVerInfo)
 								osVerInfo->dwMajorVersion    = dwData[i][0];
 								osVerInfo->dwMinorVersion    = dwData[i][1];
 								osVerInfo->wServicePackMajor = (WORD)dwData[i][2];
-
-								if(osVerInfo->dwPlatformId == VER_PLATFORM_WIN32_WINDOWS)
-									osVerInfo->dwPlatformId = VER_PLATFORM_WIN32_NT;
 							}
 						}
 						else
@@ -353,20 +352,9 @@ BOOL GetGokanMode(OSVERSIONINFOEX *osVerInfo)
 BOOL isWin9X()
 {
 #if _MSC_VER > 1700
-
 	return FALSE;
-
 #else
-
-	OSVERSIONINFOEX os;
-
-	if(GetVerifyVersionInfo(5, 0, 0))
-		return FALSE;
-
-	if(GetOSVersion(&os) == FALSE)
-		return FALSE;
-
-	return (os.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS) ? TRUE : FALSE;
+	return GetVerifyVersionInfo(5, 0, 0);
 #endif
 }
 
@@ -393,6 +381,7 @@ UINT GetOSName(TCHAR *lpText, size_t size, BOOL FullName, BOOL VerifyVersion)
 	if(lRet != ERROR_SUCCESS)
 		return FALSE;
 
+
 	lRet = RegQueryValueEx(
 		hKey,
 		_T("ProductName"),
@@ -402,7 +391,38 @@ UINT GetOSName(TCHAR *lpText, size_t size, BOOL FullName, BOOL VerifyVersion)
 		&dwByte);
 
 	if(lRet != ERROR_SUCCESS)
+	{
+		RegCloseKey(hKey);
+#if _MSC_VER < 1500
+		lRet = RegOpenKeyEx(
+			HKEY_LOCAL_MACHINE,
+			_T("Software\\Microsoft\\Windows\\CurrentVersion"),
+			0,
+			KEY_QUERY_VALUE,
+			&hKey);
+
+		if(lRet != ERROR_SUCCESS)
+			return FALSE;
+
+
+		lRet = RegQueryValueEx(
+			hKey,
+			_T("Version"),
+			0,
+			&dwType,
+			(LPBYTE)szBuf,
+			&dwByte);
+		RegCloseKey(hKey);
+
+		if(lRet != ERROR_SUCCESS)
+			return FALSE;
+
+		os_qtcscpy(lpText, szBuf);
+		return TRUE;
+#else
 		return FALSE;
+#endif
+	}
 
 	p1 = os_qtcscpy(lpText, szBuf);
 
@@ -415,12 +435,13 @@ UINT GetOSName(TCHAR *lpText, size_t size, BOOL FullName, BOOL VerifyVersion)
 		&dwType,
 		(LPBYTE)&szBuf,
 		&dwByte);
+	RegCloseKey(hKey);
+
 	if(lRet == ERROR_SUCCESS)
 	{
 		*p1++ = ' ';
 		os_qtcscpy(p1, szBuf);
 	}
-	RegCloseKey(hKey);
 
 	return TRUE;
 
@@ -1533,7 +1554,6 @@ UINT GetOSName(TCHAR *lpText, size_t size, BOOL FullName, BOOL VerifyVersion)
 
 BOOL GetUserAgentName(TCHAR* lpText, size_t size)
 {
-#if _MSC_VER > 1700
 	UNREFERENCED_PARAMETER(size);
 
 	TCHAR szBuf[33];
@@ -1543,91 +1563,69 @@ BOOL GetUserAgentName(TCHAR* lpText, size_t size)
 	DWORD dwType = REG_SZ;
 	DWORD dwByte = 33;
 
-	lRet = RegOpenKeyEx(
-		HKEY_LOCAL_MACHINE,
-		_T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion"),
-		0,
-		KEY_QUERY_VALUE,
-		&hKey);
-
-	if(lRet != ERROR_SUCCESS)
-		return FALSE;
-
-	lRet = RegQueryValueEx(
-		hKey,
-		_T("CurrentVersion"),
-		0,
-		&dwType,
-		(LPBYTE)szBuf,
-		&dwByte);
-	RegCloseKey(hKey);
-
-	if(lRet != ERROR_SUCCESS)
-		return FALSE;
-
-	p1 = os_qtcscpy(lpText, _T("Windows NT"));
-	*p1++ = _T(' ');
-	os_qtcscpy(p1, szBuf);
-
-	return TRUE;
-
-#else
-	OSVERSIONINFOEX osVersionInfo;
-	UINT nRet;
-
-	if((nRet = GetOSVersion(&osVersionInfo)) == FALSE)
+#if _MSC_VER < 1600
+	if(GetVerifyVersionInfo(5, 0, 0))
 	{
-		TCHAR *cp = (TCHAR*)malloc(_OS_FULL_SIZE * sizeof(TCHAR));
-
-		if(cp == NULL)
-			return false;
-
-		TCHAR *dst = cp;
-
-
-		switch(osVersionInfo.dwPlatformId)
-		{
-		case VER_PLATFORM_WIN32_WINDOWS:
-			if(osVersionInfo.dwMinorVersion == 0)
-				_tcscpy(cp, _T("Windows 95"));
-			else
-			{
-				_tcscpy(cp, _T("Windows 98"));
-#if _MSC_VER < 1500
-				if(osVersionInfo.dwMinorVersion == 90)
-					_tcscat(cp, _T("; Win 9x 4.90"));
 #endif
-			}
-			break;
-		case VER_PLATFORM_WIN32_NT:
-			_tcscpy(cp, _T("Windows NT"));
 
-			if(osVersionInfo.dwMajorVersion >= 3)
-			{
-				TCHAR szVal[33];
-				TCHAR *p1;
+		lRet = RegOpenKeyEx(
+			HKEY_LOCAL_MACHINE,
+			_T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion"),
+			0,
+			KEY_QUERY_VALUE,
+			&hKey);
 
-				p1 = cp + _tcslen(cp);
-				*(p1++) = ' ';
-				_itot(osVersionInfo.dwMajorVersion, szVal, 10);
-				p1 = os_qtcscpy(p1, szVal);
-				*(p1++) = '.';
-				_itot(osVersionInfo.dwMinorVersion, szVal, 10);
-				p1 = os_qtcscpy(p1, szVal);
-			}
-			break;
-		}
+		if(lRet != ERROR_SUCCESS)
+			return FALSE;
 
-		nRet = (UINT)_tcslen(dst) + 1;
-		cp   = dst;
-		if(lpText != 0 && size >= nRet)
-			_tcsncpy(lpText, cp, size - 1);
+		lRet = RegQueryValueEx(
+			hKey,
+			_T("CurrentVersion"),
+			0,
+			&dwType,
+			(LPBYTE)szBuf,
+			&dwByte);
+		RegCloseKey(hKey);
 
-		free(cp);
+		if(lRet != ERROR_SUCCESS)
+			return FALSE;
 
-		return true;
+		p1 = os_qtcscpy(lpText, _T("Windows NT"));
+		*p1++ = _T(' ');
+		os_qtcscpy(p1, szBuf);
+
+		return TRUE;
+
+
+#if _MSC_VER < 1600
 	}
-	return false;
+	else
+	{
+		lRet = RegOpenKeyEx(
+			HKEY_LOCAL_MACHINE,
+			_T("Software\\Microsoft\\Windows\\CurrentVersion"),
+			0,
+			KEY_QUERY_VALUE,
+			&hKey);
+
+		if(lRet != ERROR_SUCCESS)
+			return FALSE;
+
+
+		lRet = RegQueryValueEx(
+			hKey,
+			_T("Version"),
+			0,
+			&dwType,
+			(LPBYTE)szBuf,
+			&dwByte);
+		RegCloseKey(hKey);
+
+		if(lRet != ERROR_SUCCESS)
+			return FALSE;
+
+		os_qtcscpy(lpText, szBuf);
+	}
 #endif
 }
 
