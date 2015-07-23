@@ -121,4 +121,10 @@
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\ddk\lib\msvcrt_win2000.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\ddk\lib\msvcrt.lib" />
+  </ItemGroup>
 </Project>
