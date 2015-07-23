@@ -8,25 +8,16 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
-		Debug|x64 = Debug|x64
 		Release - NoDLL|Win32 = Release - NoDLL|Win32
-		Release - NoDLL|x64 = Release - NoDLL|x64
 		Release|Win32 = Release|Win32
-		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Debug|Win32.ActiveCfg = Debug|Win32
 		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Debug|Win32.Build.0 = Debug|Win32
-		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Debug|x64.ActiveCfg = Debug|x64
-		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Debug|x64.Build.0 = Debug|x64
 		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release - NoDLL|Win32.ActiveCfg = Release - NoDLL|Win32
 		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release - NoDLL|Win32.Build.0 = Release - NoDLL|Win32
-		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release - NoDLL|x64.ActiveCfg = Release - NoDLL|x64
-		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release - NoDLL|x64.Build.0 = Release - NoDLL|x64
 		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release|Win32.ActiveCfg = Release|Win32
 		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release|Win32.Build.0 = Release|Win32
-		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release|x64.ActiveCfg = Release|x64
-		{8DA59541-E0DF-4564-B4E5-4813B29F69E9}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
